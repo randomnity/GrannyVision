@@ -35,6 +35,9 @@ img {
             Sticky
 *******************************/
 
-.ui.sticky.fixed.top#grannyvision {
-  margin-top: 100px;
+.ui.sticky.bound.bottom{
+
+padding-top: 100px !important; display: inline-block !important; width: 690px !important; height: 130px !important; margin-top: 0px; left: 311.391px !important;
+
 }
+
