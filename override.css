@@ -25,7 +25,7 @@
 *******************************/
 
 img {
-  -webkit-filter: blur(3px) grayscale(30%) sepia(30%);
+  -webkit-filter: blur(3px) grayscale(50%) sepia(30%);
 
   margin-left: auto;
   margin-right: auto;
@@ -35,6 +35,6 @@ img {
             Sticky
 *******************************/
 
-.ui.fixed.sticky {
+.ui.sticky.fixed.top#grannyvision {
   margin-top: 100px;
 }
