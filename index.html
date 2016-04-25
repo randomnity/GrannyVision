@@ -78,6 +78,18 @@
           .trigger('click');
   }));
 
+
+
+$('.granny-vision')
+  .popup({
+    position : 'bottom center',
+    target   : '.granny-vision',
+    title    : 'Why do elderly see differently?',
+    content  : 'As humans age, they begin to lose visual and colour perception. This resource intends to mimick how an elderly sees the world.'
+  })
+;
+
+
 });
 
 
@@ -93,7 +105,7 @@
             <button class="ui green basic button" id="google-button"><h1>Google</h1></button> or &nbsp
             <button class="ui button" id="upload-button"><label for="image-upload"><h1>your design<i class="upload icon"></i></h1></button>
             
-            &nbsp with Granny vision.
+            &nbsp with <label class="granny-vision"><u>Granny vision</u></label>.
           </h1></center>
           <input id="image-upload" type="file">
         </div>
@@ -105,7 +117,7 @@
     <div class="ui centered grid" id="file-output">
       <img src='images/googlehomepage.png'></img>
     </div>
-</div>
+  </div>
 
-    </body>
+  </body>
 </html>
