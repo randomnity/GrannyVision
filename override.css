@@ -41,3 +41,16 @@ padding-top: 100px !important; display: inline-block !important; width: 690px !i
 
 }
 
+.button:active{
+outline: 1px dotted #000;
+outline: -webkit-focus-ring-color auto 5px
+}
+
+#image-upload {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}

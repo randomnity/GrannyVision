@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="override.css" type='text/css'>
 
 <script>
+
+
   //check that the file API is supported in the browser
  $(document).ready(function(){
 
@@ -27,7 +29,17 @@
       alert('The File APIs are not fully supported in this browser.');
     }
 
-  $('.ui.sticky').sticky();
+  //add Listener for both buttons
+  $('#google-button').on("click", function(){
+
+    $('#file-output').html("<img src='" + "images/googlehomepage.png" + "' />")
+
+    //clears the file input so that reuploading the same image will work
+    $("#image-upload").replaceWith($("#image-upload").val('').clone(true)); 
+  });
+  
+
+//  $('.ui.sticky').sticky();
 
   // render the image in our view
   function renderImage(file) {
@@ -39,6 +51,7 @@
     reader.onload = function(event) {
       the_url = event.target.result
       $('#file-output').html("<img src='" + the_url + "' />")
+
     }
    
     // when the file is read it triggers the onload event above.
@@ -46,12 +59,25 @@
   }
    
   // handle input changes
-  $("#image-upload").change(function() {
+  $("#image-upload").on("click", function() {
+
+
+
+     $("#image-upload").change(function(){
       console.log(this.files);
       console.log("detected");
       // grab the first image in the FileList object and pass it to the function
       renderImage(this.files[0])
+    });
   });
+
+
+  $('#upload-button').on("click",(function() {
+      $(this).parent(".whole.file")
+          .find('input[type=file]')
+          .trigger('click');
+  }));
+
 });
 
 
@@ -59,21 +85,19 @@
 
   </head>
   <body>
-    <div class="ui centered grid">
-       <div class="ui sticky" style="width: 100% !important; height: 70px !important; padding-top: 20px !important; display: inline-block !important; ">
-          <h1>See &nbsp
-            <div class="ui buttons">
-            <button class="ui positive button"> <h1>Google</h1> </button>
-            <h1><div class="or"></div></h1>
-            <button class="ui button"><h1>my design <i class="upload icon"></i></h1></button>
-            </div>
+    <div class = "whole file">
+    <div class="ui one column centered grid">
+        <div class="column">
+          <p>
+          <center><h1>See &nbsp 
+            <button class="ui green basic button" id="google-button"><h1>Google</h1></button> or &nbsp
+            <button class="ui button" id="upload-button"><label for="image-upload"><h1>your design<i class="upload icon"></i></h1></button>
             
             &nbsp with Granny vision.
-          </h1>
+          </h1></center>
           <input id="image-upload" type="file">
         </div>
       </div>
-
 
     <p>
     <p>  
@@ -81,5 +105,7 @@
     <div class="ui centered grid" id="file-output">
       <img src='images/googlehomepage.png'></img>
     </div>
+</div>
+
     </body>
 </html>
