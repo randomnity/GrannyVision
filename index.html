@@ -1,123 +1,93 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title></title>
-    
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Granny Vision</title>
 
-    <link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Cabin:500' rel='stylesheet' type='text/css'>
+  <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/semantic.min.css"
+      rel="stylesheet" type="text/css">
+  <link href="main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="content">
+  <div class="instruction">
+    See
+    <div class="ui green basic button" id="google-button">
+      <span>Google</span>
+    </div>
+    or
+    <label for="image-upload" class="ui button">
+      <span>your design<i class="upload icon"></i>
+        <input id="image-upload" type="file">
+      </span>
+    </label>
+    with
+    <label class="granny-vision">Granny vision<i class="info circle icon"></i></label>
+    .
+  </div>
+  <div class="ui centered grid" id="file-output">
+    <img src='images/googlehomepage.png'/>
+  </div>
+</div>
 
-
-    <link rel="stylesheet" href="semantic/semantic.css" type='text/css'>
-    <script type="text/javascript" src="semantic/semantic.js"></script>
-
-    <link rel="stylesheet" href="override.css" type='text/css'>
-
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/semantic.min.js"></script>
 <script>
-
-
   //check that the file API is supported in the browser
- $(document).ready(function(){
+  $(document).ready(function () {
 
-  if (window.File && window.FileReader && window.FileList && window.Blob) 
-    { }
-  else 
-    {
+    if (!window.File || !window.FileReader || !window.FileList || !window.Blob) {
       alert('The File APIs are not fully supported in this browser.');
     }
 
-  //add Listener for both buttons
-  $('#google-button').on("click", function(){
+    //add Listener for both buttons
+    $('#google-button').on('click', function () {
 
-    $('#file-output').html("<img src='" + "images/googlehomepage.png" + "' />")
+      $('#file-output').html("<img src='" + "images/googlehomepage.png" + "' />");
 
-    //clears the file input so that reuploading the same image will work
-    $("#image-upload").replaceWith($("#image-upload").val('').clone(true)); 
-  });
-  
+      //clears the file input so that reuploading the same image will work
+      var $imageUpload = $('#image-upload');
+      $imageUpload.replaceWith($imageUpload.val('').clone(true));
+    });
 
 //  $('.ui.sticky').sticky();
 
-  // render the image in our view
-  function renderImage(file) {
+    // render the image in our view
+    function renderImage(file) {
 
-    // generate a new FileReader object
-    var reader = new FileReader();
+      // generate a new FileReader object
+      var reader = new FileReader();
 
-    // inject an image with the src url
-    reader.onload = function(event) {
-      the_url = event.target.result
-      $('#file-output').html("<img src='" + the_url + "' />")
+      // inject an image with the src url
+      reader.onload = function (event) {
+        var fileUrl = event.target.result;
+        $('#file-output').html("<img src='" + fileUrl + "' />")
+      };
 
+      // when the file is read it triggers the onload event above.
+      reader.readAsDataURL(file);
     }
-   
-    // when the file is read it triggers the onload event above.
-    reader.readAsDataURL(file);
-  }
-   
-  // handle input changes
-  $("#image-upload").on("click", function() {
 
+    // handle input changes
+    $('#image-upload').on('click', function () {
+      $('#image-upload').change(function () {
+        console.log(this.files, 'detected');
+        // grab the first image in the FileList object and pass it to the function
+        renderImage(this.files[0])
+      });
+    });
 
-
-     $("#image-upload").change(function(){
-      console.log(this.files);
-      console.log("detected");
-      // grab the first image in the FileList object and pass it to the function
-      renderImage(this.files[0])
+    $('.granny-vision').popup({
+      position: 'bottom center',
+      target: '.granny-vision',
+      title: 'Why do elderly see differently?',
+      content: 'As humans age, they begin to lose visual and colour perception. This resource intends to mimick how an elderly sees the world.'
     });
   });
-
-
-  $('#upload-button').on("click",(function() {
-      $(this).parent(".whole.file")
-          .find('input[type=file]')
-          .trigger('click');
-  }));
-
-
-
-$('.granny-vision')
-  .popup({
-    position : 'bottom center',
-    target   : '.granny-vision',
-    title    : 'Why do elderly see differently?',
-    content  : 'As humans age, they begin to lose visual and colour perception. This resource intends to mimick how an elderly sees the world.'
-  })
-;
-
-
-});
-
-
 </script>
-
-  </head>
-  <body>
-    <div class = "whole file">
-    <div class="ui one column centered grid">
-        <div class="column">
-          <p>
-          <center><h1>See &nbsp 
-            <button class="ui green basic button" id="google-button"><h1>Google</h1></button> or &nbsp
-            <button class="ui button" id="upload-button"><label for="image-upload"><h1>your design<i class="upload icon"></i></h1></button>
-            
-            &nbsp with <label class="granny-vision"><u>Granny vision</u></label>.
-          </h1></center>
-          <input id="image-upload" type="file">
-        </div>
-      </div>
-
-    <p>
-    <p>  
-
-    <div class="ui centered grid" id="file-output">
-      <img src='images/googlehomepage.png'></img>
-    </div>
-  </div>
-
-  </body>
+</body>
 </html>

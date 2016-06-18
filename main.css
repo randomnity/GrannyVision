@@ -1,0 +1,76 @@
+/*******************************
+  Old Person Filter
+*******************************/
+
+img {
+    -webkit-filter: blur(3px) grayscale(50%) sepia(30%);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*******************************
+  Sticky
+*******************************/
+
+.ui.sticky.bound.bottom {
+
+    padding-top: 100px !important;
+    display: inline-block !important;
+    width: 690px !important;
+    height: 130px !important;
+    margin-top: 0px;
+    left: 311.391px !important;
+
+}
+
+/*******************************
+  Active Button Feedback
+*******************************/
+
+.button:active {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px
+}
+
+/*******************************
+  Hide Input Control
+*******************************/
+
+#image-upload {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+/*******************************
+  Customize underline
+*******************************/
+.granny-vision {
+    border-bottom: 1px dotted #000;
+    text-decoration: none;
+}
+
+/** General Style **/
+.instruction {
+    padding: 10px 0;
+    margin-bottom: 50px;
+    min-height: 1rem;
+    background-color: #F7F7F7;
+    text-align: center;
+}
+
+.instruction,
+.instruction .ui.button span {
+    font-size: 2rem;
+    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    line-height: 1.2857em;
+}
+
+.instruction .ui.button {
+    margin-left: 8px;
+    margin-right: 8px;
+}
