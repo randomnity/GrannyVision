@@ -9,14 +9,11 @@
  *
  */
 
-
 /*******************************
             Input Button
 *******************************/
 
 .input {
-
-
 
 }
 
@@ -25,19 +22,24 @@
 *******************************/
 
 img {
-  -webkit-filter: blur(3px) grayscale(50%) sepia(30%);
+    -webkit-filter: blur(3px) grayscale(50%) sepia(30%);
 
-  margin-left: auto;
-  margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*******************************
             Sticky
 *******************************/
 
-.ui.sticky.bound.bottom{
+.ui.sticky.bound.bottom {
 
-padding-top: 100px !important; display: inline-block !important; width: 690px !important; height: 130px !important; margin-top: 0px; left: 311.391px !important;
+    padding-top: 100px !important;
+    display: inline-block !important;
+    width: 690px !important;
+    height: 130px !important;
+    margin-top: 0px;
+    left: 311.391px !important;
 
 }
 
@@ -45,9 +47,9 @@ padding-top: 100px !important; display: inline-block !important; width: 690px !i
       Active Button Feedback
 *******************************/
 
-.button:active{
-outline: 1px dotted #000;
-outline: -webkit-focus-ring-color auto 5px
+.button:active {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px
 }
 
 /*******************************
@@ -55,18 +57,18 @@ outline: -webkit-focus-ring-color auto 5px
 *******************************/
 
 #image-upload {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
 }
 
 /*******************************
             Customize underline
 *******************************/
-u {    
+u {
     border-bottom: 1px dotted #000;
     text-decoration: none;
 }
