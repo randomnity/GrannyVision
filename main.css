@@ -1,35 +1,15 @@
-/*!
- * # Semantic UI 2.1.7 - Button
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Copyright 2015 Contributors
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
 /*******************************
-            Input Button
-*******************************/
-
-.input {
-
-}
-
-/*******************************
-            Old Person Filter
+  Old Person Filter
 *******************************/
 
 img {
     -webkit-filter: blur(3px) grayscale(50%) sepia(30%);
-
     margin-left: auto;
     margin-right: auto;
 }
 
 /*******************************
-            Sticky
+  Sticky
 *******************************/
 
 .ui.sticky.bound.bottom {
@@ -44,7 +24,7 @@ img {
 }
 
 /*******************************
-      Active Button Feedback
+  Active Button Feedback
 *******************************/
 
 .button:active {
@@ -53,12 +33,12 @@ img {
 }
 
 /*******************************
-      Hide Input Control
+  Hide Input Control
 *******************************/
 
 #image-upload {
-    width: 0.1px;
-    height: 0.1px;
+    width: 0;
+    height: 0;
     opacity: 0;
     overflow: hidden;
     position: absolute;
@@ -66,9 +46,31 @@ img {
 }
 
 /*******************************
-            Customize underline
+  Customize underline
 *******************************/
-u {
+.granny-vision {
     border-bottom: 1px dotted #000;
     text-decoration: none;
+}
+
+/** General Style **/
+.instruction {
+    padding: 10px 0;
+    margin-bottom: 50px;
+    min-height: 1rem;
+    background-color: #F5F5F5;
+    text-align: center;
+}
+
+.instruction,
+.instruction .ui.button span {
+    font-size: 2rem;
+    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    line-height: 1.2857em;
+}
+
+.instruction .ui.button {
+    margin-left: 8px;
+    margin-right: 8px;
 }
